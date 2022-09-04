@@ -19,6 +19,7 @@ class _HomePageState extends State<HomePage> {
       ),
       body: StreamBuilder<List<Student>>(
         stream: _studentBloc.studentListStream,
+        initialData: [],
         builder: (BuildContext context, AsyncSnapshot<List<Student>> snapshot) {
           return ListView.builder(
               itemCount: snapshot.data!.length,
@@ -27,7 +28,7 @@ class _HomePageState extends State<HomePage> {
                   elevation: 2.0,
                   child: Row(
                     children: <Widget>[
-                      SizedBox(width: 10),
+                      const SizedBox(width: 10),
                       Text(
                         '${snapshot.data![index].id}.',
                         style: const TextStyle(fontSize: 20),

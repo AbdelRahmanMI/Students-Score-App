@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:students_score_app/auth/login/login_view.dart';
+import 'auth/auth_repository.dart';
 import 'home_page.dart';
 
 void main() {
@@ -16,8 +19,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomePage(),
+      home: RepositoryProvider(
+        create: (context) => AuthRepository(),
+        child: LoginView(),
+      ),
     );
   }
 }
-

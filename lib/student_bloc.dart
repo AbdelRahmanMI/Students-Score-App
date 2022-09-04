@@ -21,7 +21,7 @@ class StudentBloc {
   final _studentScoreDecrementStreamController = StreamController<Student>();
 
 
-  // Stram and Sink
+  // Stream and Sink
 
   Stream<List<Student>> get studentListStream => _studentListStreamController.stream;
   StreamSink<List<Student>> get studentListSink => _studentListStreamController.sink;
@@ -40,7 +40,7 @@ class StudentBloc {
 
   _incrementScore(Student student){
     double score = student.score;
-    double incrementValue = 0.5;
+    double incrementValue = 1;
     if(student.score<100)
       {
         _studentList[student.id-1].score = score+incrementValue;
@@ -49,7 +49,7 @@ class StudentBloc {
   }
   _decrementScore(Student student){
     double score = student.score;
-    double decrementValue = -0.5;
+    double decrementValue = -1;
     if(student.score>0)
     {
       _studentList[student.id-1].score = score+decrementValue;
